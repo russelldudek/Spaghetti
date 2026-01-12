@@ -1,0 +1,9 @@
+{
+  "stories": [
+    {"id": "M0", "title": "Repo scaffold and template setup", "description": "Set up project structure, add template definitions and import xlsx parser", "status": "todo"},
+    {"id": "M1", "title": "Floor plan renderer", "description": "Render 2D facility map with storage units and benches", "status": "todo"},
+    {"id": "M2", "title": "Slot generator and rack views", "description": "Generate slots from storage templates and display rack details", "status": "todo"},
+    {"id": "M3", "title": "Template swap and conflict report", "description": "Support changing storage templates and produce conflict reports", "status": "todo"},
+    {"id": "M4", "title": "Export updated workbook", "description": "Export xlsx with StorageUnits, Slots, Assignments and floor plan", "status": "todo"}
+  ]
+}
