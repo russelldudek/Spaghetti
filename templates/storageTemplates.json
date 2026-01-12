@@ -1,0 +1,23 @@
+{
+  "BOLTLESS_48x24x84_7S": {
+    "label": "Boltless Rack 48x24x84 (7 shelves)",
+    "geometry": { "width": 48, "depth": 24, "height": 84 },
+    "structure": { "shelves": 7, "binsPerShelf": 6, "binWidth": 7.5, "binDepth": 22, "binHeight": 10 },
+    "slotKind": "bin",
+    "rules": { "maxLoad": 600, "handling": ["general", "clean", "esd"] }
+  },
+  "DRAWER_36x24x60_10D": {
+    "label": "Drawer Cabinet 36x24x60 (10 drawers)",
+    "geometry": { "width": 36, "depth": 24, "height": 60 },
+    "structure": { "drawers": 10, "drawerWidth": 32, "drawerDepth": 21, "drawerHeight": 4 },
+    "slotKind": "drawer",
+    "rules": { "maxLoad": 350, "handling": ["general", "esd"] }
+  },
+  "SHELF_CART_30x18x48_4S": {
+    "label": "Shelf Cart 30x18x48 (4 shelves)",
+    "geometry": { "width": 30, "depth": 18, "height": 48 },
+    "structure": { "shelves": 4, "binsPerShelf": 3, "binWidth": 9, "binDepth": 16, "binHeight": 8 },
+    "slotKind": "bin",
+    "rules": { "maxLoad": 200, "handling": ["general", "clean"] }
+  }
+}
