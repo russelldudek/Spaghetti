@@ -1,3 +1,4 @@
 Initial log - progress tracking starts here.
 
 [2025-09-06] Implemented SpaghettiPlano MVP scaffold with Vite + React, template definitions, XLSX import/parser/validation, slot generator, floor plan rendering, rack detail view, template swap remap, conflict reporting, and export tools for XLSX + SVG. Marked M0-M4 as passing in prd.json.
+[2025-09-06] Added README documentation with GitHub Pages publishing steps and usage instructions.
