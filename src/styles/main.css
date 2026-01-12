@@ -1,0 +1,119 @@
+:root {
+  font-family: "Inter", system-ui, sans-serif;
+  color: #0f172a;
+  background: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+button,
+select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #cbd5f5;
+  background: #fff;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+section {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.panel-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.floor-plan {
+  border: 1px solid #cbd5f5;
+  border-radius: 12px;
+  padding: 12px;
+  background: #f1f5f9;
+}
+
+.slot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 8px;
+}
+
+.slot-card {
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  padding: 6px;
+  background: #fff;
+  font-size: 0.75rem;
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.conflict {
+  border-left: 4px solid #ef4444;
+  padding-left: 12px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.note {
+  color: #475569;
+  font-size: 0.85rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #e2e8f0;
+  font-size: 0.7rem;
+  margin-right: 6px;
+}
