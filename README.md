@@ -46,4 +46,4 @@ npm run preview
 
 ## GitHub Pages deployment
 
-This project is configured to serve from the `/spaghettiPlano/` base path so it can be hosted on GitHub Pages at the `spaghettiPlano` URL. Build the site and publish the `dist/` folder to the `gh-pages` branch (or configure Pages to serve `dist/`). 
+This project is configured to serve from the root base path (`/`) so it can be hosted on a user/organization GitHub Pages site (e.g., `https://<username>.github.io`). Build the site and publish the `dist/` folder to the `gh-pages` branch (or configure Pages to serve `dist/`). 
