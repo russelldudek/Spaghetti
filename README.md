@@ -46,4 +46,4 @@ npm run preview
 
 ## GitHub Pages deployment
 
-This project is configured to serve from the root base path (`/`) so it can be hosted on a user/organization GitHub Pages site (e.g., `https://<username>.github.io`). Build the site and publish the `dist/` folder to the `gh-pages` branch (or configure Pages to serve `dist/`). 
+GitHub Pages serves this repository from `/Spaghetti/`, so asset paths must resolve relative to that base. The `index.html` file includes a production entry point that loads the prebuilt bundle from `dist/`, and the development entry point when running locally. Publish the repository root so `/Spaghetti/dist/` is available, or update the Pages settings to serve the `dist/` folder directly.

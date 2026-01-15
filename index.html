@@ -7,7 +7,35 @@
     <title>SpaghettiPlano</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="./src/main.tsx"></script>
+    <div id="root">SpaghettiPlano loaded</div>
+    <pre id="error-log" style="white-space: pre-wrap; color: #b91c1c;"></pre>
+    <script>
+      const errorLog = document.getElementById("error-log");
+      const reportError = (label, error) => {
+        const message = error instanceof Error ? error.stack || error.message : String(error);
+        errorLog.textContent = `${label}: ${message}`;
+      };
+
+      window.addEventListener("error", (event) => {
+        reportError("Runtime error", event.error || event.message);
+      });
+
+      window.addEventListener("unhandledrejection", (event) => {
+        reportError("Unhandled promise rejection", event.reason);
+      });
+
+      const isLocal = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+      if (!isLocal) {
+        const stylesheet = document.createElement("link");
+        stylesheet.rel = "stylesheet";
+        stylesheet.href = "./dist/assets/main.css";
+        document.head.appendChild(stylesheet);
+      }
+
+      const script = document.createElement("script");
+      script.type = "module";
+      script.src = isLocal ? "/src/main.tsx" : "./dist/assets/main.js";
+      document.head.appendChild(script);
+    </script>
   </body>
 </html>
