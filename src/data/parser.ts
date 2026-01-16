@@ -1,5 +1,6 @@
 import * as XLSX from "xlsx";
 import type { Assignment, Item, PlanoData, Slot, StorageUnit } from "./types";
+import { templates } from "./templates";
 
 const requiredItemColumns = ["item_id", "description", "unit_cube", "handling_class", "family"];
 const requiredStorageColumns = ["storage_id", "zone", "template_id", "x", "y", "rotation"];
@@ -17,6 +18,7 @@ const parseSheet = (sheet: XLSX.Sheet) => XLSX.utils.sheet_to_json<Record<string
 export function parseWorkbook(data: ArrayBuffer): { data: PlanoData; errors: string[] } {
   const workbook = XLSX.read(data, { type: "array" });
   const errors: string[] = [];
+  const knownTemplates = new Set(Object.keys(templates));
 
   const storageRows = workbook.Sheets.StorageUnits
     ? parseSheet(workbook.Sheets.StorageUnits)
@@ -62,6 +64,30 @@ export function parseWorkbook(data: ArrayBuffer): { data: PlanoData; errors: str
       maxLoad: row.max_load ? toNumber(row.max_load) : undefined,
     },
   }));
+
+  const missingTemplateIds = new Set<string>();
+  const blankTemplateStorage = new Set<string>();
+  storageUnits.forEach((unit) => {
+    if (!unit.templateId) {
+      blankTemplateStorage.add(unit.storageId || "Unknown storage_id");
+      return;
+    }
+    if (!knownTemplates.has(unit.templateId)) {
+      missingTemplateIds.add(unit.templateId);
+    }
+  });
+
+  if (blankTemplateStorage.size > 0) {
+    errors.push(
+      `StorageUnits missing template_id for: ${Array.from(blankTemplateStorage).join(", ")}.`,
+    );
+  }
+
+  if (missingTemplateIds.size > 0) {
+    errors.push(
+      `StorageUnits reference unknown template_id: ${Array.from(missingTemplateIds).join(", ")}.`,
+    );
+  }
 
   const items: Item[] = itemRows.map((row) => ({
     itemId: String(row.item_id ?? ""),
